@@ -12,12 +12,14 @@ import tk.xdevcloud.medicalcore.utils.*;
 import tk.xdevcloud.medicalcore.services.AuthenticateService;
 import tk.xdevcloud.medicalcore.listeners.DBManagerListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 public class AuthenticateServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4688675195513964816L;
 	private static Logger logger = Logger.getLogger(AuthenticateServlet.class.getName());
+
 	public void init() {
-		
+
 	}
 
 	@Override
@@ -29,12 +31,10 @@ public class AuthenticateServlet extends HttpServlet {
 		if (logout.equals("true")) {
 			request.getSession().invalidate();
 			response.getWriter().println("{\"success\":true}");
-		}
-		else {
-			
+		} else {
+
 			response.getWriter().println("{\"success\":false}");
 		}
-		
 
 	}
 
@@ -42,7 +42,7 @@ public class AuthenticateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("application/json");
-		
+
 		Gson json = new Gson();
 		String username = null;
 		String password = null;
@@ -56,19 +56,19 @@ public class AuthenticateServlet extends HttpServlet {
 			if (jsonObject.has("password")) {
 				password = jsonObject.get("password").getAsString().trim();
 			}
-			
+
 			if ((username.equals("")) || (username == null)) {
 
 				ServletUtil.sendError("Username is required", response, HttpServletResponse.SC_BAD_REQUEST);
 				return;
 			}
 
-			if ((password.equals("") )|| (password == null)) {
+			if ((password.equals("")) || (password == null)) {
 				ServletUtil.sendError("Password  is required", response, HttpServletResponse.SC_BAD_REQUEST);
 				return;
 			}
 
-			if (authService.verify(username,password)) {
+			if (authService.verify(username, password)) {
 
 				HttpSession session = request.getSession();
 				session.setAttribute("username", username);
@@ -87,12 +87,11 @@ public class AuthenticateServlet extends HttpServlet {
 		}
 
 		catch (Exception exception) {
-            exception.printStackTrace();
+			exception.printStackTrace();
 			ServletUtil.sendError("System Error", response, HttpServletResponse.SC_BAD_REQUEST);
 			logger.info(exception.getMessage());
 		}
 
 	}
-	
 
 }

@@ -21,10 +21,10 @@ public class AuthenticationFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws java.io.IOException, ServletException {
-         
+
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession();
-		
+
 		if (session.getAttribute("username") == null) {
 			response.setContentType("application/json");
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -32,7 +32,7 @@ public class AuthenticationFilter implements Filter {
 			return;
 
 		}
-	
+
 		chain.doFilter(request, response);
 	}
 

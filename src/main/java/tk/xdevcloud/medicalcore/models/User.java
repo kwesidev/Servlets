@@ -33,7 +33,7 @@ public class User implements Serializable {
 	}
 
 	public User(String username, String password) {
-		
+
 		this.username = username;
 		this.password = password;
 
@@ -59,9 +59,9 @@ public class User implements Serializable {
 
 		return username;
 	}
-	
+
 	public Integer getId() {
-		
+
 		return id;
 	}
 

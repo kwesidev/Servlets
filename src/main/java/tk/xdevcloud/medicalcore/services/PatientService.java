@@ -10,12 +10,11 @@ import javax.persistence.NoResultException;
 
 public class PatientService extends DBService {
 
-
 	public PatientService(EntityManager entityManager) {
 
 		super(entityManager);
 	}
-	
+
 	/**
 	 * 
 	 * @param patient
@@ -30,16 +29,16 @@ public class PatientService extends DBService {
 			entityManager.persist(patient);
 			tx.commit();
 		} catch (Exception e) {
-			
-			if(tx != null && tx.isActive()) {
-			      tx.rollback();
+
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
 			}
 			return false;
 		}
-		
+
 		finally {
-			
-		   entityManager.close();
+
+			entityManager.close();
 		}
 
 		return true;
@@ -67,16 +66,15 @@ public class PatientService extends DBService {
 
 		} catch (Exception e) {
 
-			if(tx != null && tx.isActive()) {
-			      tx.rollback();
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
 			}
 			return false;
 
+		} finally {
+
+			entityManager.close();
 		}
-		finally {
-			
-			   entityManager.close();
-			}
 		return true;
 	}
 
@@ -126,8 +124,8 @@ public class PatientService extends DBService {
 			tx.commit();
 
 		} catch (Exception e) {
-			if(tx != null && tx.isActive()) {
-			      tx.rollback();
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
 			}
 		}
 

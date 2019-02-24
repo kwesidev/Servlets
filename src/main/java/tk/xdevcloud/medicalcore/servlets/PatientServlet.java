@@ -16,6 +16,7 @@ import javax.validation.*;
 import java.util.Set;
 import tk.xdevcloud.medicalcore.utils.*;
 import tk.xdevcloud.medicalcore.listeners.DBManagerListener;
+
 public class PatientServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1500805539391979323L;
@@ -26,7 +27,7 @@ public class PatientServlet extends HttpServlet {
 	public void init() {
 
 	}
- 
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -63,7 +64,7 @@ public class PatientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Gson json
-	
+
 		response.setContentType("application/json");
 		try {
 			reEstablishConnection();
@@ -156,18 +157,19 @@ public class PatientServlet extends HttpServlet {
 		}
 
 	}
-    /**
-     * Reconnect the EntityManager connection if it was closed 
-     * @throws Exception
-     */
+
+	/**
+	 * Reconnect the EntityManager connection if it was closed
+	 * 
+	 * @throws Exception
+	 */
 	private void reEstablishConnection() throws Exception {
 
 		if (patientService == null) {
-            patientService = new PatientService(DBManagerListener.getEntityManager());
+			patientService = new PatientService(DBManagerListener.getEntityManager());
+		} else {
+			patientService.setEntityManager(DBManagerListener.getEntityManager());
 		}
-		else {
-			    patientService.setEntityManager(DBManagerListener.getEntityManager());
-			}
 
 	}
 
