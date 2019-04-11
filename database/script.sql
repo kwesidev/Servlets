@@ -3,7 +3,7 @@ CREATE EXTENSION pgcrypto;
 
 CREATE TABLE patients(
     id SERIAL NOT NULL PRIMARY KEY,
-    uuid UUID  DEFAULT gen_random_uuid(),
+    uuid UUID  DEFAULT gen_random_uuid() UNIQUE,
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
     id_number VARCHAR NOT NULL UNIQUE
@@ -12,7 +12,7 @@ CREATE TABLE patients(
 CREATE TABLE admins(
 
     id SERIAL NOT NULL PRIMARY KEY,
-    uuid UUID  DEFAULT gen_random_uuid(),
+    uuid UUID  DEFAULT gen_random_uuid() UNIQUE,
     username VARCHAR NOT NULL UNIQUE,
     password VARCHAR NOT NULL
 );
