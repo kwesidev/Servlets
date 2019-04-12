@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class AuthenticateServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4688675195513964816L;
-	private static Logger logger = Logger.getLogger(AuthenticateServlet.class.getName());
+	private static final Logger logger = Logger.getLogger(AuthenticateServlet.class.getName());
 
 	public void init() {
 

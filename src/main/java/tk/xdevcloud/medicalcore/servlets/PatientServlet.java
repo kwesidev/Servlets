@@ -20,7 +20,7 @@ import tk.xdevcloud.medicalcore.listeners.DBManagerListener;
 public class PatientServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1500805539391979323L;
-	private static Logger logger = Logger.getLogger(PatientServlet.class.getName());
+	private static  final Logger logger  = Logger.getLogger(PatientServlet.class.getName());
 
 	private PatientService patientService = null;
 
