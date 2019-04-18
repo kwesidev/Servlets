@@ -7,7 +7,7 @@ CREATE TABLE patients(
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
     id_number VARCHAR NOT NULL UNIQUE
-)
+);
 
 CREATE TABLE admins(
 
