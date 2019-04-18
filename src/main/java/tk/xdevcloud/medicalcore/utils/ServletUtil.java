@@ -3,11 +3,15 @@ package tk.xdevcloud.medicalcore.utils;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.*;
-
+/**
+ * Servlet Util class to report various errors
+ * @author william
+ *
+ */
 public final class ServletUtil {
 
 	/**
-	 * Custom Http Error Response
+	 * Custom Http Error Response in Json Format
 	 * 
 	 * @param message
 	 * @param response
@@ -22,10 +26,9 @@ public final class ServletUtil {
 	}
 
 	/**
-	 * Send Response the user
+	 * Custom Http Respond in Json format
 	 * 
 	 * @param message
-	 * 
 	 * @param response
 	 * @throws IOException
 	 */

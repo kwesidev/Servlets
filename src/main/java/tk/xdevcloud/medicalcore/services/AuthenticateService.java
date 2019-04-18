@@ -15,8 +15,9 @@ public class AuthenticateService extends DBService {
 	 * verify if username and password is valid
 	 * 
 	 * @param username
-	 * @param rawPassword
+	 * @param rawPassword unencrypted password
 	 * @return True if password valid
+	 * @throws Throwable
 	 */
 	public boolean verify(String username, String rawPassword) {
 

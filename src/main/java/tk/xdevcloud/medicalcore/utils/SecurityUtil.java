@@ -4,9 +4,20 @@ import javax.crypto.*;
 import java.security.SecureRandom;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-
+/**
+ * Security Util Class 
+ * @author william
+ *
+ */
 public class SecurityUtil {
-
+    /**
+     * Encrypts some data
+     * @param data to be encrypted
+     * @return encrypted Aes string 
+     * @throws NoSuchAlgorithm 
+     * @throws InvalidKeyException
+     * @throws IllegBlockSizeException
+     */
 	public static String aesEncrypt(String data) {
 
 		Cipher cipher;

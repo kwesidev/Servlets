@@ -9,15 +9,15 @@ import tk.xdevcloud.medicalcore.exceptions.*;
 import javax.persistence.NoResultException;
 
 public class PatientService extends DBService {
-
+     
 	public PatientService(EntityManager entityManager) {
 
 		super(entityManager);
 	}
 
 	/**
-	 * 
-	 * @param patient
+	 * Adds a Patient 
+	 * @param Patient entity
 	 * @return
 	 */
 	public boolean add(Patient patient) {
@@ -45,9 +45,9 @@ public class PatientService extends DBService {
 	}
 
 	/**
-	 * 
+	 * Updates Patient record
 	 * @param Patient p
-	 * @param UUID    uuid
+	 * @param UUID uuid
 	 * @return bool
 	 * @throws Exception
 	 */
@@ -80,10 +80,9 @@ public class PatientService extends DBService {
 
 	/**
 	 * Gets a specific patient record
-	 * 
 	 * @param UUID uuid of the patient to view
-	 * @return
-	 * @throws Exception
+	 * @return Patient entity
+	 * @throws NotFoundException
 	 */
 	public Patient getPatient(UUID uuid) throws NotFoundException, Exception {
 
@@ -110,9 +109,9 @@ public class PatientService extends DBService {
 
 	/**
 	 * delete a specific patient
-	 * 
 	 * @param uuid id of the specific patient
 	 * @return bool
+	 * @throws Exception
 	 */
 	public boolean delete(UUID uuid) throws NotFoundException, Exception {
 
@@ -133,7 +132,7 @@ public class PatientService extends DBService {
 	}
 
 	/**
-	 * 
+	 * find entity by uuid
 	 * @param uuid
 	 * @return
 	 * @throws NotFoundException
