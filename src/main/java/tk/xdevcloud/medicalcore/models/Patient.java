@@ -10,9 +10,11 @@ import javax.persistence.GenerationType;
 import org.hibernate.validator.constraints.NotEmpty;
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "patients")
+@DynamicUpdate
 public class Patient implements Serializable {
 
 	private static final long serialVersionUID = 2256673111627911565L;
