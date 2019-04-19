@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 import tk.xdevcloud.medicalcore.utils.*;
 import tk.xdevcloud.medicalcore.services.AuthenticateService;
 import tk.xdevcloud.medicalcore.listeners.DBManagerListener;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class AuthenticateServlet extends HttpServlet {
 
