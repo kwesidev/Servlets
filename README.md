@@ -1,5 +1,6 @@
 WEB API Using Servlet
 ==
+[![Build Status](https://travis-ci.org/kwesidev/servletsexamples.svg?branch=master)
 <br>
 
 System Requirements
